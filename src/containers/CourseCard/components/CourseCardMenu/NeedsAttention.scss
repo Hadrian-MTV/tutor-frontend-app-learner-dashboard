@@ -1,0 +1,184 @@
+/* --- CSS variable defaults (light theme) --- */
+:root {
+  --background: #ffffff;
+
+  --card-bg: #fbfbfb; 
+  --muted: #6b6b6b;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+  --container-bg: #fff;
+  --container-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  --overlay-bg: rgba(0, 0, 0, 0.5);
+
+  --close-bg: #002548;
+  --close-text: #ffffff;
+
+  --number-bg: #ffffff;
+  --number-color: #002845;
+
+  --text-color: #222;
+  --title-color: #222;
+  --subtitle-color: var(--muted);
+
+  --hover-border-color: rgba(11, 74, 122, 0.08);
+
+
+}
+
+/* --- Dark theme overrides --- */
+body.indigo-dark-theme {
+  --background: #292A2C;
+  --button: #70B8FD;  
+
+  --card-bg: #1f2022;
+  --muted: #b5b5b5;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 26px rgba(0, 0, 0, 0.7);
+
+  --container-bg: #292A2C;
+  --container-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  --overlay-bg: rgba(0, 0, 0, 0.7);
+
+  --close-bg: var(--button); 
+  --close-text: #13497D;
+
+  --number-bg: var(--button); 
+  --number-color: #13497D;
+
+  --text-color: #ffffff;
+  --title-color: #ffffff;
+  --subtitle-color: #b5b5b5;
+
+  --hover-border-color: rgba(112, 184, 253, 0.35); 
+
+}
+
+.modal {
+  &__header {
+    padding: 28px 36px 12px;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--title-color);
+  }
+
+  &__subtitle {
+    margin: 8px 0 0;
+    color: var(--subtitle-color);
+    font-size: 14px;
+  }
+
+  &__cards {
+    padding: 18px 24px 24px;
+    overflow: auto;
+  }
+}
+
+.updates-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px;
+  border-radius: 8px;
+  background: var(--card-bg);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  counter-increment: update-card;
+
+  &__meta {
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__number::before {
+    content: counter(update-card);
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 50%;
+    background: var(--number-bg);
+    color: var(--number-color);
+    box-shadow: var(--shadow-sm);
+    font-size: 14px;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--hover-border-color);
+  }
+}
+
+.overlay-styles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--overlay-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.container-styles {
+  width: 80vw;
+  max-width: 600px;
+  background-color: var(--container-bg);
+  border-radius: 10px;
+  box-shadow: var(--container-box-shadow);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.close-button-body {
+  width: 100%;
+  color: var(--close-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.close-button {
+  background-color: var(--close-bg);
+  height: 28px;
+  width: 40px;
+  border-radius: 0 5px 0 5px;
+}
+
+.content-container {
+  padding: 30px 20px;
+}

@@ -1,5 +1,20 @@
 @import "@openedx/paragon/scss/core/core";
 
+.needs-attention-container {
+  display: flex;
+  padding: "0 0 10px 0";
+  align-items: "center";
+}
+
+.needs-attention-button {
+  border: 0;
+  padding: 3px 20px;
+  background-color: #f3a000;
+  color: black;
+  font-size: 13px;
+  border-radius: 13px;
+}
+
 .course-card {
   .card {
     .pgn__card-wrapper-image-cap.vertical {

@@ -22,8 +22,8 @@ export const CourseList = ({ courseListData }) => {
         </div>
       )}
       <div className="d-flex flex-column flex-grow-1">
-        {visibleList.map(({ cardId }) => (
-          <CourseCard key={cardId} cardId={cardId} />
+        {visibleList.map(({ cardId, courseRun }) => (
+          <CourseCard key={cardId} cardId={cardId} courseId={courseRun.courseId} />
         ))}
         {numPages > 1 && (
           <Pagination

@@ -15,6 +15,7 @@ import './CourseCard.scss';
 
 export const CourseCard = ({
   cardId,
+  courseId,
 }) => {
   const isCollapsed = useIsCollapsed();
   const orientation = isCollapsed ? 'vertical' : 'horizontal';
@@ -27,7 +28,7 @@ export const CourseCard = ({
             <Card.Body>
               <Card.Header
                 title={<CourseCardTitle cardId={cardId} />}
-                actions={<CourseCardMenu cardId={cardId} />}
+                actions={<CourseCardMenu cardId={cardId} courseId={courseId} />}
               />
               <Card.Section className="pt-0">
                 <CourseCardDetails cardId={cardId} />
