@@ -6,7 +6,6 @@ import { Badge } from '@openedx/paragon';
 
 import track from 'tracking';
 import { reduxHooks } from 'hooks';
-import verifiedRibbon from 'assets/verified-ribbon.png';
 import useActionDisabledState from './hooks';
 
 import messages from '../messages';
@@ -39,7 +38,6 @@ export const CourseCardImage = ({ cardId, orientation }) => {
             <Badge as="div" variant="success" className="w-100">
               {formatMessage(messages.verifiedBanner)}
             </Badge>
-            <img src={verifiedRibbon} alt={formatMessage(messages.verifiedBannerRibbonAlt)} />
           </span>
         )
       }

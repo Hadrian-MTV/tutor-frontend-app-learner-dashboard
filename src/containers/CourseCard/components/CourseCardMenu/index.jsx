@@ -10,6 +10,7 @@ import EmailSettingsModal from 'containers/EmailSettingsModal';
 import UnenrollConfirmModal from 'containers/UnenrollConfirmModal';
 import { reduxHooks } from 'hooks';
 import SocialShareMenu from './SocialShareMenu';
+import NeedsAttentionButton from "./NeedsAttentionButton";
 import {
   useEmailSettings,
   useUnenrollData,
@@ -23,7 +24,7 @@ export const testIds = StrictDict({
   unenrollModalToggle: 'unenrollModalToggle',
 });
 
-export const CourseCardMenu = ({ cardId }) => {
+export const CourseCardMenu = ({ cardId, courseId }) => {
   const { formatMessage } = useIntl();
 
   const emailSettings = useEmailSettings();
@@ -38,7 +39,8 @@ export const CourseCardMenu = ({ cardId }) => {
   }
 
   return (
-    <>
+    <div className="needs-attention-container">
+      <NeedsAttentionButton courseId={courseId} />
       <Dropdown onToggle={handleToggleDropdown}>
         <Dropdown.Toggle
           id={`course-actions-dropdown-${cardId}`}
@@ -73,7 +75,7 @@ export const CourseCardMenu = ({ cardId }) => {
           cardId={cardId}
         />
       )}
-    </>
+    </div>
   );
 };
 CourseCardMenu.propTypes = {
